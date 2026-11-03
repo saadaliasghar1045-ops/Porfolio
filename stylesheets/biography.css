@@ -1,0 +1,64 @@
+/* BIOGRAPHY - full-screen, scroll-pinned. The portrait grows until it fills the whole viewport. */
+.bio { position: relative; height: 380vh; }
+.bio__pin { height: 100%; }
+.bio__stage {
+  position: sticky; top: 0; height: 100vh; height: 100dvh; overflow: hidden; background: var(--bg);
+  --ix: 33%; --iy: 13%; --ir: 34px; --is: 0.5; --giant: 1; --shade: 0;
+  contain: layout paint;
+}
+@media (hover: hover) and (pointer: fine) { .bio__stage { cursor: none; } }
+
+/* Embossed giant word that fills the width */
+.bio__giant { position: absolute; inset: 0; display: grid; place-items: center; opacity: var(--giant); will-change: opacity, transform; pointer-events: none; }
+.bio__giant span {
+  font-family: var(--font-display); font-weight: 800; line-height: 0.8; letter-spacing: -0.05em; white-space: nowrap;
+  font-size: 26vw; color: color-mix(in srgb, var(--bg) 92%, var(--text) 8%);
+  text-shadow: 10px 10px 24px var(--shadow-dark), -10px -10px 24px var(--shadow-light);
+}
+
+.bio__frame { position: absolute; inset: 0; clip-path: inset(var(--iy) var(--ix) round var(--ir)); will-change: clip-path; }
+.bio__img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 24%; transform: scale(var(--is)); will-change: transform; }
+.bio__shade {
+  position: absolute; inset: 0; opacity: var(--shade); pointer-events: none;
+  background: linear-gradient(to top, rgba(8, 9, 13, 0.92) 0%, rgba(8, 9, 13, 0.7) 38%, rgba(8, 9, 13, 0.1) 75%, transparent 100%);
+}
+.bio__field { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+
+.bio__copy {
+  position: absolute; left: 0; right: 0; bottom: 0; padding: 0 var(--gutter) clamp(2.5rem, 9vh, 6rem);
+  max-width: calc(38rem + var(--gutter) * 2); pointer-events: none;
+}
+.bio__copy .eyebrow, .bio__title, .bio__line {
+  opacity: 0; transform: translate3d(0, 28px, 0); filter: blur(6px);
+  transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out), filter 0.9s var(--ease-out);
+}
+.bio__copy .eyebrow { margin-bottom: 1rem; }
+.bio__title { color: #fff; font-size: clamp(2rem, 4.4vw, 3.7rem); margin-bottom: 1.6rem; }
+.bio__lines { display: grid; }
+.bio__line { color: rgba(255, 255, 255, 0.84); font-size: clamp(0.98rem, 1.5vw, 1.15rem); line-height: 1.7; grid-area: 1 / 1; }
+.bio__copy .bio__line.is-past { transform: translate3d(0, -28px, 0); }
+.bio__copy .is-on { opacity: 1; transform: none; filter: blur(0); }
+
+/* Antigravity-style cursor that replaces the pointer inside this section */
+.bio__cursor { position: absolute; left: 0; top: 0; z-index: 4; pointer-events: none; opacity: 0; transition: opacity 0.4s; will-change: transform; }
+.bio__cursor i, .bio__cursor b { position: absolute; border-radius: 50%; translate: -50% -50%; }
+.bio__cursor i { width: 12px; height: 12px; background: var(--accent); box-shadow: 0 0 18px 2px var(--accent-glow); }
+.bio__cursor b { width: 54px; height: 54px; border: 1.5px solid var(--accent); opacity: 0.7; transition: scale 0.5s var(--ease-out); }
+.bio__cursor.is-active { opacity: 1; }
+.bio__cursor.is-intro b { animation: cursor-intro 0.9s var(--ease-out); }
+@keyframes cursor-intro { from { scale: 0; opacity: 0; } 60% { opacity: 1; } to { scale: 1; opacity: 0.7; } }
+
+.bio__hint {
+  position: absolute; left: 50%; bottom: 2.2rem; translate: -50% 0; display: flex; flex-direction: column; align-items: center; gap: 0.8rem;
+  font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--text-dim); transition: opacity 0.5s;
+}
+.bio__hint span { width: 1.5px; height: 3rem; background: linear-gradient(var(--accent), transparent); animation: hint 2s var(--ease-soft) infinite; transform-origin: top; }
+@keyframes hint { 0% { transform: scaleY(0); } 50% { transform: scaleY(1); } 100% { transform: scaleY(1); opacity: 0; } }
+
+@media (max-width: 760px) {
+  .bio__stage { --ix: 12%; --iy: 20%; --ir: 28px; }
+  .bio__giant span { font-size: 30vw; }
+  .bio__shade { background: linear-gradient(to top, rgba(8, 9, 13, 0.95) 0%, rgba(8, 9, 13, 0.82) 55%, rgba(8, 9, 13, 0.25) 90%, transparent 100%); }
+  .bio__copy { padding-bottom: 6.8rem; }
+  .bio__title { margin-bottom: 1rem; }
+}

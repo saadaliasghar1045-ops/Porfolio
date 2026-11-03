@@ -1,0 +1,117 @@
+/* ==========================================================================
+   THEME BASE  -  structure, type, spacing, neumorphic primitives.
+   Edit this file to change the *shape* of the whole site (radius, spacing,
+   fonts, shadow depth). Colours live in theme-colors.css.
+   ========================================================================== */
+:root {
+  --font-display: 'Sora', 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+  --r-sm: 14px;
+  --r-md: 22px;
+  --r-lg: 32px;
+  --r-xl: 44px;
+  --r-pill: 999px;
+
+  --container: 1220px;
+  --gutter: clamp(1.25rem, 5vw, 3rem);
+  /* Breathing room between sections ("the pause") */
+  --space-section: clamp(7.5rem, 20vh, 14rem);
+  --nav-h: 84px;
+
+  /* Neumorphic depth. Shadow colours come from theme-colors.css */
+  --depth: 1;
+  --neu-out: calc(10px * var(--depth)) calc(10px * var(--depth)) calc(22px * var(--depth)) var(--shadow-dark),
+    calc(-10px * var(--depth)) calc(-10px * var(--depth)) calc(22px * var(--depth)) var(--shadow-light);
+  --neu-out-sm: calc(5px * var(--depth)) calc(5px * var(--depth)) calc(12px * var(--depth)) var(--shadow-dark),
+    calc(-5px * var(--depth)) calc(-5px * var(--depth)) calc(12px * var(--depth)) var(--shadow-light);
+  --neu-in: inset calc(6px * var(--depth)) calc(6px * var(--depth)) calc(13px * var(--depth)) var(--shadow-dark),
+    inset calc(-6px * var(--depth)) calc(-6px * var(--depth)) calc(13px * var(--depth)) var(--shadow-light);
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-soft: cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: auto; }
+body {
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  transition: background-color 0.5s var(--ease-soft), color 0.5s var(--ease-soft);
+}
+img, svg, canvas { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+ul { list-style: none; padding: 0; }
+::selection { background: var(--accent); color: var(--accent-ink); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: var(--r-sm); }
+
+h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.08; letter-spacing: -0.03em; font-weight: 700; }
+h1 { font-size: clamp(2.8rem, 7vw, 5.6rem); font-weight: 800; }
+h2 { font-size: clamp(2.2rem, 5vw, 3.9rem); }
+h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); letter-spacing: -0.02em; }
+p { color: var(--text-dim); }
+.accent { color: var(--accent); }
+
+.container { width: min(100% - var(--gutter) * 2, var(--container)); margin-inline: auto; }
+.section { position: relative; padding-block: var(--space-section); }
+
+/* Section heading block */
+.section-head { max-width: 46rem; margin-bottom: clamp(3rem, 7vw, 5.5rem); }
+.section-head p { margin-top: 1.4rem; font-size: 1.15rem; max-width: 36rem; }
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 0.7rem;
+  font-size: 0.78rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 1.4rem;
+}
+.eyebrow::before { content: ''; width: 2rem; height: 2px; border-radius: 2px; background: currentColor; }
+
+/* Neumorphic primitives */
+.neu { background: var(--bg); box-shadow: var(--neu-out); border-radius: var(--r-md); }
+.neu-sm { background: var(--bg); box-shadow: var(--neu-out-sm); border-radius: var(--r-sm); }
+.neu-in { background: var(--bg); box-shadow: var(--neu-in); border-radius: var(--r-md); }
+.neu-outline { border: 1px solid var(--line); }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.7rem;
+  padding: 0.95rem 1.7rem; border-radius: var(--r-pill); font-weight: 600; font-size: 0.98rem;
+  background: var(--bg); box-shadow: var(--neu-out-sm); color: var(--text);
+  transition: box-shadow 0.35s var(--ease-soft), transform 0.35s var(--ease-soft), color 0.3s;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn:active { box-shadow: var(--neu-in); transform: translateY(0); }
+.btn svg { width: 1.1em; height: 1.1em; }
+.btn--accent { color: var(--accent-ink); background: var(--accent); box-shadow: var(--neu-out-sm), 0 10px 30px -10px var(--accent-glow); }
+.btn--accent:active { box-shadow: var(--neu-in); }
+.btn .btn__dot {
+  display: grid; place-items: center; width: 2rem; height: 2rem; margin: -0.35rem -0.8rem -0.35rem 0;
+  border-radius: 50%; background: var(--bg); box-shadow: var(--neu-in); color: var(--accent);
+}
+
+.chip {
+  display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.45rem 1rem;
+  border-radius: var(--r-pill); font-size: 0.82rem; font-weight: 600; color: var(--text-dim);
+  background: var(--bg); box-shadow: var(--neu-out-sm);
+}
+.icon-tile {
+  display: grid; place-items: center; width: 3.4rem; height: 3.4rem; border-radius: var(--r-sm);
+  background: var(--bg); box-shadow: var(--neu-out-sm); color: var(--accent);
+}
+.icon-tile svg { width: 1.5rem; height: 1.5rem; }
+
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+body { padding-bottom: 0; }
+@media (max-width: 1023px) {
+  :root { --nav-h: 0px; }
+  body { padding-bottom: 6.5rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
+}

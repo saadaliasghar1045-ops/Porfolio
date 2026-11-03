@@ -1,0 +1,70 @@
+/* ==========================================================================
+   THEME COLOURS  -  every colour on the site comes from here.
+   DARK  mirrors your dark reference (deep navy, neon-green glow).
+   LIGHT mirrors your light reference (cool grey, orange accent).
+   To recolour the entire website, edit only the variables below.
+   ========================================================================== */
+
+/* ---------- DARK ---------- */
+:root,
+[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #1e202a;
+  --bg-deep: #171921;
+  --text: #e8eaf2;
+  --text-dim: #8b90a5;
+  --line: rgba(255, 255, 255, 0.07);
+
+  --shadow-dark: rgba(7, 8, 13, 0.7);
+  --shadow-light: rgba(255, 255, 255, 0.045);
+
+  --accent: #a6f36c;
+  --accent-ink: #11160a;
+  --accent-glow: rgba(166, 243, 108, 0.45);
+
+  /* Secondary glows (used on tool cards, charts, tiles) */
+  --c-purple: #9a63f2;
+  --c-blue: #3f8fe0;
+  --c-teal: #2fbfae;
+  --c-yellow: #d9db4c;
+  --c-pink: #ee6aa7;
+
+  --overlay: rgba(14, 15, 21, 0.62);
+  --grain-opacity: 0.05;
+}
+
+/* Slight colour drift between sections (same neumorphism, tiny hue change) */
+[data-theme='dark'] [data-tone='b'] { --accent: #6fe5c3; --accent-glow: rgba(111, 229, 195, 0.42); }
+[data-theme='dark'] [data-tone='c'] { --accent: #b6e85a; --accent-glow: rgba(182, 232, 90, 0.42); }
+
+/* ---------- LIGHT ---------- */
+[data-theme='light'] {
+  color-scheme: light;
+  --bg: #e9eaef;
+  --bg-deep: #dfe0e7;
+  --text: #2c2e35;
+  --text-dim: #7b7e8a;
+  --line: rgba(60, 64, 80, 0.12);
+
+  --shadow-dark: rgba(158, 163, 181, 0.7);
+  --shadow-light: rgba(255, 255, 255, 0.95);
+
+  --accent: #ff6a1a;
+  --accent-ink: #ffffff;
+  --accent-glow: rgba(255, 106, 26, 0.45);
+
+  --c-purple: #7c5cf0;
+  --c-blue: #2f80e0;
+  --c-teal: #12a594;
+  --c-yellow: #e0a410;
+  --c-pink: #e8508f;
+
+  --overlay: rgba(233, 234, 239, 0.55);
+  --grain-opacity: 0.035;
+}
+[data-theme='light'] [data-tone='b'] { --accent: #f5521f; --accent-glow: rgba(245, 82, 31, 0.4); }
+[data-theme='light'] [data-tone='c'] { --accent: #f28a0f; --accent-glow: rgba(242, 138, 15, 0.4); }
+
+/* Background well behind tool logos so dark logos stay readable */
+:root, [data-theme='dark'] { --icon-well: #e7e9f0; }
+[data-theme='light'] { --icon-well: #ffffff; }

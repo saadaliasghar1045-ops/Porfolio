@@ -1,0 +1,21 @@
+/* PROJECTS - GitHub-style stacking cards */
+.projects .stack { padding-bottom: 6vh; }
+.pcard { margin-bottom: clamp(5rem, 22vh, 12rem); border-radius: var(--r-xl); min-height: min(560px, 74vh); overflow: hidden; position: relative; }
+.pcard:last-child { margin-bottom: 0; }
+.pcard__in { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(1.6rem, 4vw, 3.5rem); align-items: center; padding: clamp(1.6rem, 4vw, 3.2rem); min-height: inherit; }
+.pcard__meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.4rem; }
+.pcard__num { font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent); }
+.pcard h3 { font-size: clamp(2rem, 4vw, 3.2rem); margin-bottom: 1.1rem; }
+.pcard p { font-size: 1.05rem; }
+.pcard__stack { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 1.8rem; }
+.pcard__stack .chip { box-shadow: var(--neu-in); }
+.pcard__links { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; }
+.pcard__shot { border-radius: var(--r-lg); padding: 0.8rem; }
+.pcard__shot img { width: 100%; aspect-ratio: 2.07 / 1; object-fit: cover; object-position: top left; border-radius: calc(var(--r-lg) - 0.6rem); transition: scale 1.2s var(--ease-out); }
+.pcard:hover .pcard__shot img { scale: 1.03; }
+.pcard__dim { position: absolute; inset: 0; background: var(--bg-deep); opacity: var(--dim, 0); pointer-events: none; border-radius: inherit; }
+
+@media (max-width: 900px) {
+  .pcard__in { grid-template-columns: 1fr; }
+  .pcard { min-height: 0; }
+}

@@ -14,15 +14,23 @@ window.PORTFOLIO = {
       { label: 'GitHub', href: 'https://github.com/saadaliasghar1045-ops', icon: 'i-github' },
       { label: 'LinkedIn', href: 'https://www.linkedin.com/in/saad-ali-asghar/', icon: 'i-linkedin' },
     ],
-    rotatingWords: ['Deep Learning', 'Machine Learning', 'Reinforcement Learning', 'Feature Engineering', 'FastAPI'],
+    rotatingWords: ['Deep Learning', 'Machine Learning', 'Reinforcement Learning', 'Feature Engineering', 'FastAPI',"Data Analytics"],
   },
 
   /* ---------- 1. Academic skills ----------
      group: 'core' (big cards) | 'data' (data-craft steps) | 'delivery' (wide card)
      icon : name from the ICONS list in javascript/skills.js                     */
   academic: [
+    // Academic Skills 
     { title: 'Machine Learning', group: 'core', icon: 'chart', text: 'Regression, trees, boosting and the habits that make models generalise.' },
     { title: 'Reinforcement Learning', group: 'core', icon: 'loop', text: 'Agents, rewards and policies: learning by trying, failing and improving.' },
+    { title: 'Data Analytics', group: 'core', icon: 'analytics',   text: 'Finding patterns, uncovering insights and transforming raw data into meaningful information through exploration and visualisation.' },
+    { title: 'Data Understanding & Feature Engineering', group: 'core', icon: 'filter', text: 'Exploring data, uncovering meaningful patterns and transforming raw variables into informative features through EDA, feature engineering and feature extraction.'},
+    { title: 'Calculus', group: 'core', icon: 'calculus', text: 'Understanding how quantities change through differentiation, integration and optimisation, building the mathematical foundation behind model training and gradient-based learning.'},
+    { title: 'Linear Algebra', group: 'core', icon: 'linearAlgebra', text: 'Working with vectors, matrices, matrix operations and transformations to understand the mathematical structures behind neural networks and machine learning algorithms.'},
+    { title: 'Statistics', group: 'core', icon: 'statistics', text: 'Applying probability, distributions, statistical measures and hypothesis testing to understand data, quantify uncertainty and make evidence-based decisions.'},
+    { title: 'Model Development & Training', group: 'core', icon: 'modelPipeline', text: 'Building end-to-end machine learning workflows by selecting suitable algorithms, training models, tuning hyperparameters and evaluating performance to develop reliable, data-driven solutions.'},
+    // Other skills 
     { title: 'Data Collection', group: 'data', icon: 'download', text: 'Finding and gathering data worth learning from.' },
     { title: 'Data Preparation', group: 'data', icon: 'layers', text: 'Shaping raw tables into model-ready input.' },
     { title: 'Data Cleaning', group: 'data', icon: 'sparkle', text: 'Missing values, outliers and noise handled with care.' },

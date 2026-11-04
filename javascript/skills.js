@@ -15,7 +15,12 @@
     wrench: 'M14.500 6.500a4 4 0 005 5L21 13l-8 8-4-4 8-8zM3 21l5-5',
     filter: 'M3 5h18l-7 8v6l-4 2v-8z',
     rocket: 'M5 15c-1.500 1.500-2 5-2 5s3.500-.5 5-2M14 4c3-1 6-1 7-1 0 1 0 4-1 7l-7 7-6-6zM12 12l-2-2M15 9.500a1 1 0 100-.01',
-    arrow: 'M5 12h14M13 6l6 6-6 6'
+    arrow: 'M5 12h14M13 6l6 6-6 6',
+    analytics: 'M3 3v18h18 M7 17v-4 M11 17V8 M15 17v-6 M6 10l4-4 4 2 4-4 M6 10h.01 M10 6h.01 M14 8h.01 M18 4h.01',
+    calculus: 'M3 17l6-10 5 7 7-10 M3 21h18 M7 17h.01 M9 7h.01 M14 14h.01 M21 4h.01',
+    linearAlgebra: 'M4 4h6v6H4z M14 4h6v6h-6z M4 14h6v6H4z M14 14h6v6h-6z M10 7h4 M7 10v4 M17 10v4 M10 17h4',
+    statistics: 'M3 3v18h18 M7 17v-5 M12 17V7 M17 17v-9 M5 9l5-4 4 2 6-4',
+    modelPipeline: 'M4 5h5v5H4z M15 5h5v5h-5z M9 7.5h6 M17.5 10v4 M15 16.5h5v5h-5z M4 16.5h5v5H4z M9 19h6 M6.5 10v6',
   };
   function icon(name) {
     var s = document.createElementNS(NS, 'svg');

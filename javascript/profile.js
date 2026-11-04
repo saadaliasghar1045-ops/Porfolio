@@ -6,13 +6,13 @@
 window.PORTFOLIO = {
   /* ---------- About you ---------- */
   profile: {
-    name: 'Your Name', // <-- put your real name here
+    name: 'Saad Ali Asghar', // <-- put your real name here
     email: '', // <-- e.g. 'you@example.com' (enables the contact form)
-    github: 'https://github.com/your-handle',
-    linkedin: 'https://www.linkedin.com/in/your-handle',
+    github: 'https://github.com/saadaliasghar1045-ops',
+    linkedin: 'https://www.linkedin.com/in/saad-ali-asghar/',
     social: [
-      { label: 'GitHub', href: 'https://github.com/your-handle', icon: 'i-github' },
-      { label: 'LinkedIn', href: 'https://www.linkedin.com/in/your-handle', icon: 'i-linkedin' },
+      { label: 'GitHub', href: 'https://github.com/saadaliasghar1045-ops', icon: 'i-github' },
+      { label: 'LinkedIn', href: 'https://www.linkedin.com/in/saad-ali-asghar/', icon: 'i-linkedin' },
     ],
     rotatingWords: ['Deep Learning', 'Machine Learning', 'Reinforcement Learning', 'Feature Engineering', 'FastAPI'],
   },
@@ -21,7 +21,6 @@ window.PORTFOLIO = {
      group: 'core' (big cards) | 'data' (data-craft steps) | 'delivery' (wide card)
      icon : name from the ICONS list in javascript/skills.js                     */
   academic: [
-    { title: 'Deep Learning', group: 'core', icon: 'brain', text: 'Neural networks from the ground up: layers, backprop and why depth matters.' },
     { title: 'Machine Learning', group: 'core', icon: 'chart', text: 'Regression, trees, boosting and the habits that make models generalise.' },
     { title: 'Reinforcement Learning', group: 'core', icon: 'loop', text: 'Agents, rewards and policies: learning by trying, failing and improving.' },
     { title: 'Data Collection', group: 'data', icon: 'download', text: 'Finding and gathering data worth learning from.' },
@@ -65,18 +64,18 @@ window.PORTFOLIO = {
       tag: 'Machine Learning',
       text: 'A crop recommendation app. It reads seven soil and environmental conditions and a trained model suggests the crop most likely to thrive on that land.',
       image: 'planter-ai.jpg',
-      stack: ['Python', 'Machine Learning', 'Web app'],
-      link: 'https://github.com/your-handle',
-      code: 'https://github.com/your-handle',
+      stack: ['Python', 'HTML/CSS/Js', 'Fastapi'],
+      link: 'https://saadaliasghar1045-ops.github.io/PlanterAI/',
+      code: 'https://github.com/saadaliasghar1045-ops/PlanterAI',
     },
     {
       title: 'Cinematix',
       tag: 'Web · Discovery',
       text: 'A cinematic movie discovery interface with trending picks, a Find Movies page and a light and dark mode, built to make browsing films feel like a premiere.',
       image: 'cinematix.jpg',
-      stack: ['JavaScript', 'HTML5', 'CSS3'],
-      link: 'https://github.com/your-handle',
-      code: 'https://github.com/your-handle',
+      stack: ['HTML/CSS/Js', 'Fastapi', 'Python'],
+      link: 'https://saadaliasghar1045-ops.github.io/Cine-Matix/pages/index.html',
+      code: 'https://github.com/saadaliasghar1045-ops/Cine-Matix',
     },
   ],
 
@@ -85,9 +84,10 @@ window.PORTFOLIO = {
     { when: 'The start', title: 'ICS at PGC', text: 'Started Intermediate in Computer Science at PGC, where programming stopped being a subject and became a habit.' },
     { when: 'Web foundations', title: 'HTML, CSS & JavaScript', text: 'Learned to build interfaces from YouTube and tutorials, mostly by breaking pages and fixing them.' },
     { when: 'Python era', title: 'Python & its libraries', text: 'Picked up Python, NumPy, Pandas and Matplotlib, and learned to look at data before trusting it.' },
-    { when: 'The turning point', title: 'Andrew Ng & Machine Learning', text: 'Worked through Andrew Ng\'s Machine Learning and Deep Learning teaching. This is where everything clicked.' },
+    { when: 'The turning point', title: 'Andrew Ng & Machine Learning', text: 'Worked through Andrew Ng\'s Machine Learning . This is where everything clicked.' },
+    { when: 'Physical AI', title: 'Reinforcement Learning', text: 'Exploring agents that learn by interaction, and sharpening the data craft behind every good model.' },
     { when: 'Going further', title: 'Frameworks & boosting', text: 'PyTorch, TensorFlow, Keras, XGBoost, LightGBM and CatBoost joined the toolbox, along with feature engineering and SVD.' },
     { when: 'Shipping', title: 'FastAPI & real projects', text: 'Started wrapping models behind APIs and building products like Planter AI and Cinematix.' },
-    { when: 'Now', title: 'Reinforcement Learning', text: 'Exploring agents that learn by interaction, and sharpening the data craft behind every good model.' },
+    { when: 'Now', title: 'Deep Learning', text: 'Deep diving into neural networks and modern architectures (Transformers, RNNs, CNNs), with a core focus on mastering NLP and Generative AI.' },
   ],
 };

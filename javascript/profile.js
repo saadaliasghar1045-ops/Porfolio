@@ -3,6 +3,8 @@
    Add a tool, a skill, a project or a journey chapter by copying a line.
    See README.md for step-by-step instructions.
    ========================================================================== */
+
+  
 window.PORTFOLIO = {
   /* ---------- About you ---------- */
   profile: {

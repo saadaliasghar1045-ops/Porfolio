@@ -19,3 +19,19 @@
   .pcard__in { grid-template-columns: 1fr; }
   .pcard { min-height: 0; }
 }
+
+/* Project storytelling refinements */
+.pcard__text { min-width: 0; }
+.pcard p { max-width: 39rem; line-height: 1.75; }
+.pcard__focus { margin-top: 0.9rem; font-size: 0.94rem !important; }
+.pcard__focus strong { color: var(--text); font-weight: 600; }
+.pcard__shot { overflow: hidden; }
+.pcard__shot img { display: block; }
+@media (max-width: 900px) {
+  .pcard { margin-bottom: clamp(2.5rem, 8vh, 5rem); }
+  .pcard__in { gap: 1.8rem; }
+}
+@media (max-width: 560px) {
+  .pcard__links { gap: 0.7rem; }
+  .pcard__links .btn { width: 100%; }
+}

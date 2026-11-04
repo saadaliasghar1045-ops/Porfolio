@@ -1,115 +1,114 @@
-# Machine Learning Portfolio
+# Saad Ali Asghar — Portfolio
 
-A neumorphic, light + dark portfolio built with plain HTML, CSS and JavaScript. No build step: open `home.html`.
+A responsive personal portfolio built with plain HTML, CSS and JavaScript. It includes light/dark themes, project cards, skills filters, a learning timeline and an illustrative model-training visualisation. There is no build step or frontend framework.
 
-```
-portfolio/
-├── home.html                  page structure + section order
-├── README.md
-├── assets/
-│   ├── images/                your photos and project screenshots
-│   └── icons/                 tool logos (.svg) + favicon
-├── stylesheets/
-│   ├── theme-base.css         BASE THEME: fonts, radius, spacing, shadow depth
-│   ├── theme-colors.css       COLOUR THEME: light + dark palettes
-│   ├── animations.css         reveal + scroll animation look (timing)
-│   ├── site-effects.css       grain, scrollbar, small global details
-│   └── navbar / hero / biography / skills / projects / showcase / experience / contact .css
-└── javascript/
-    ├── profile.js             ALL YOUR CONTENT (name, skills, tools, projects, journey)
-    ├── animations.js          smooth scroll, reveals, parallax, stacking cards
-    ├── site-effects.js        theme toggle + shared helpers
-    └── navbar / hero / biography / skills / projects / showcase / experience / contact .js
-```
+## Run locally
 
-Pages load order: theme files, then animations, then each section. Each section has its own CSS (and JS only where it needs behaviour; `showcase`, `experience` etc.).
+1. Extract the project folder.
+2. Open a terminal in the folder.
+3. Start a local static server. For example:
 
----
+   ```bash
+   python -m http.server 5500
+   ```
 
-## 1. First things to do
+4. Visit `http://localhost:5500/home.html`.
 
-Open `javascript/profile.js` and fill in:
+Opening the HTML file directly may work, but a local server is recommended for consistent asset loading and browser behaviour.
+
+## Update your content
+
+Most portfolio content lives in `javascript/profile.js`:
+
+- `profile`: name, social links, email, contact API endpoint and rotating hero words.
+- `academic`: core knowledge cards, data workflow steps and model delivery card.
+- `tools`: technology cards and their filter categories.
+- `projects`: project title, description, image, technologies and links.
+- `timeline`: learning milestones, oldest first and newest last.
+
+### Add a project
+
+Copy an object inside `projects` in `javascript/profile.js`:
 
 ```js
-profile: {
-  name: 'Your Name',
-  email: 'you@example.com',          // enables the contact form (opens the visitor's email app)
-  social: [
-    { label: 'GitHub',   href: 'https://github.com/you',      icon: 'i-github' },
-    { label: 'LinkedIn', href: 'https://linkedin.com/in/you', icon: 'i-linkedin' },
-  ],
+{
+  title: 'Project name',
+  tag: 'Machine Learning',
+  text: 'A concise explanation of what the project does.',
+  focus: 'What you implemented or learned.',
+  image: 'project-image.jpg',
+  stack: ['Python', 'FastAPI'],
+  link: 'https://your-live-demo.example',
+  code: 'https://github.com/your-account/your-repository'
 }
 ```
 
-## 2. Add a tool (small card + moving strip)
+Place the image in `assets/images/`. The Live view and Source code buttons are only displayed when their respective URLs are provided.
 
-In `profile.js` add one line to `tools`:
+### Add a tool
 
-```js
-{ name: 'Plotly', icon: 'plotly.svg', cat: 'Data & Viz', color: 'var(--c-blue)' },
-```
-
-1. Put the logo file in `assets/icons/plotly.svg`.
-2. No logo? Leave `icon: ''` and add `mono: 'Pl'`; a coloured monogram card is generated.
-3. `cat` creates a filter button automatically. Use an existing category or invent a new one.
-
-The hero strip and the stats counter update on their own.
-
-## 3. Add an academic skill
-
-Add to `academic` in `profile.js`:
+Add an object to `tools`, and put its SVG logo in `assets/icons/`:
 
 ```js
-{ title: 'Computer Vision', group: 'core', icon: 'brain', text: 'One-sentence description.' },
+{ name: 'Tool name', icon: 'tool.svg', cat: 'Machine Learning', color: 'var(--c-blue)' }
 ```
 
-- `group: 'core'` big card, `'data'` step in the data-craft flow, `'delivery'` wide card.
-- `icon` names: brain, chart, loop, download, layers, sparkle, wrench, filter, rocket. More icons can be added to `ICONS` at the top of `javascript/skills.js`.
+If you do not have a logo, use `icon: ''` and provide a short `mono` label, such as `mono: 'ML'`. A filter is generated automatically for each category.
 
-## 4. Add a project
+### Add an academic skill
 
-Copy a block inside `projects`, put the screenshot in `assets/images/`, set `image: 'file.jpg'`. Add `link` and/or `code` URLs and the buttons appear. Cards stack on scroll automatically.
-
-## 5. Add experience / growth
-
-Add an object to `timeline` (newest last). The last item gets the pulsing "now" dot.
+Add an object to `academic`:
 
 ```js
-{ when: 'Spring 2026', title: 'Kaggle competition', text: 'What you did and learned.' },
+{ title: 'Computer Vision', group: 'core', icon: 'brain', text: 'A short, accurate description of the topic.' }
 ```
 
-## 6. Change the look of the whole site from one place
+Use `core` for a main skill card, `data` for a data-workflow step, or `delivery` for the wide model-to-application card. Available SVG icon names are defined at the top of `javascript/skills.js`.
 
-| Want to change | Edit |
+## Contact form setup
+
+The form does **not** send messages until you connect it to a deployed backend. It must not point to `127.0.0.1` or `localhost` on a public website, because those addresses refer to each visitor's own device.
+
+In `javascript/profile.js`, set:
+
+```js
+contactEndpoint: 'https://your-deployed-api.example.com/contact',
+```
+
+Your FastAPI endpoint should accept a JSON body with `name`, `email` and `message`, and allow your portfolio domain through CORS. Use HTTPS in production. If you leave `contactEndpoint` empty, the form will use the configured `profile.email` as a `mailto:` fallback when an email address is provided; if neither is configured, it displays a clear message directing visitors to GitHub or LinkedIn.
+
+Only publish an email address you are comfortable making public.
+
+## Theme and layout
+
+| Change | File |
 | --- | --- |
-| Light/dark colours, accent colour, glow | `stylesheets/theme-colors.css` |
-| Rounded corners, spacing between sections, fonts, neumorphic depth (`--depth`) | `stylesheets/theme-base.css` |
-| Reveal speed, distance, blur, easing | top of `stylesheets/animations.css` |
-| Smooth-scroll feel, stagger delay, stacking-card effect | `CONFIG` at top of `javascript/animations.js` |
+| Light/dark palette and accent colours | `stylesheets/theme-colors.css` |
+| Fonts, radii, spacing and neumorphic shadows | `stylesheets/theme-base.css` |
+| Reveal animation timing | `stylesheets/animations.css` |
+| Navigation, hero, biography, skills, projects, showcase, timeline and contact styles | Matching files in `stylesheets/` |
 
-Handy variables: `--accent` (main colour), `--space-section` (the "pause" between sections), `--depth` (0.6 flatter, 1.4 deeper shadows). Sections also have `data-tone="a|b|c"` in `home.html`; each tone nudges the accent slightly, defined at the bottom of `theme-colors.css`.
+The theme toggle saves the selected theme in local storage. The initial theme follows the visitor's system preference when no saved preference exists.
 
-## 7. Reveal animations on new content
+## Project structure
 
-Add attributes to any element:
-
-```html
-<h2 data-split>Words slide up one by one</h2>
-<div data-reveal="up" data-delay="200">Fades and rises</div>
-<ul data-stagger><li data-reveal="up"></li><li data-reveal="up"></li></ul>
+```text
+Portfolio/
+├── home.html
+├── index.html
+├── README.md
+├── portfolio_explain.md
+├── assets/
+│   ├── icons/
+│   └── images/
+├── javascript/
+│   ├── profile.js
+│   ├── animations.js
+│   ├── site-effects.js
+│   ├── navbar.js
+│   └── section scripts...
+└── stylesheets/
+    ├── theme-base.css
+    ├── theme-colors.css
+    └── section stylesheets...
 ```
-
-Types: `up`, `down`, `left`, `right`, `scale`, `fade`, `rise`. Content you render with JS can call `Motion.reveal(container)` afterwards.
-
-## 8. Images
-
-- Header/navbar + hero: `assets/images/portrait-studio.jpg`
-- Biography (full screen): `assets/images/portrait-outdoor.jpg`. Square or portrait photos with the face in the upper-middle work best.
-
-Replace the files with the same names to swap pictures.
-
-## 9. Layout notes
-
-- Desktop (1024px and up): floating top bar. Mobile and tablet: bottom bar with icons.
-- Biography is a scroll-pinned section: the portrait grows to fill the screen, then the story fades through three steps. Tune the timing at the top of `javascript/biography.js` (`HEAD_AT`, `STEPS`) and the height in `.bio { height: 380vh }`.
-- `prefers-reduced-motion` users get no animation automatically.

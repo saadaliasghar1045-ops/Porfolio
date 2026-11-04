@@ -115,3 +115,19 @@ body { padding-bottom: 0; }
 @media (prefers-reduced-motion: reduce) {
   * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
 }
+
+/* Readability and responsive polish */
+html { scroll-padding-top: 6rem; }
+body { text-rendering: optimizeLegibility; }
+p { max-width: 72ch; }
+button, input, textarea { -webkit-tap-highlight-color: transparent; }
+@media (max-width: 640px) {
+  :root { --gutter: 1.15rem; --space-section: clamp(5.5rem, 14vh, 8rem); }
+  body { font-size: 1rem; }
+  .section-head { margin-bottom: 2.8rem; }
+  .section-head p { font-size: 1rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  .strip__track { animation: none !important; }
+}

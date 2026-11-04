@@ -72,3 +72,17 @@
   .tools { grid-template-columns: repeat(2, 1fr); }
   .acad-wide { grid-template-columns: 1fr; }
 }
+
+/* Refinements: keep the academic cards readable without making the section feel crowded. */
+.acad-core { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1rem, 2vw, 1.5rem); }
+.acad-card { gap: 0.8rem; padding: clamp(1.35rem, 2.4vw, 1.9rem); }
+.acad-card h4 { font-size: clamp(1.08rem, 1.35vw, 1.28rem); line-height: 1.25; }
+.acad-card p { font-size: 0.91rem; line-height: 1.65; }
+.acad-flow__title { font-size: 1.1rem; }
+.acad-step small { max-width: 15rem; }
+@media (max-width: 1023px) {
+  .acad-core { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 620px) {
+  .acad-core { grid-template-columns: 1fr; }
+}

@@ -26,3 +26,12 @@
 .to-top:active { box-shadow: var(--neu-in); }
 .to-top svg { width: 1.2rem; height: 1.2rem; }
 @media (max-width: 900px) { .contact__grid { grid-template-columns: 1fr; } }
+
+.contact__form input, .contact__form textarea { width: 100%; min-width: 0; }
+.contact__form button:disabled { opacity: 0.65; cursor: wait; transform: none; }
+.contact__status { line-height: 1.55; }
+.contact__copy h2 { max-width: 11ch; }
+@media (max-width: 560px) {
+  .contact__form .btn { width: 100%; }
+  .footer__row { align-items: flex-start; }
+}

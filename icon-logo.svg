@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <defs>
+    <linearGradient id="cyberGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60a5fa" />
+      <stop offset="100%" stop-color="#c084fc" />
+    </linearGradient>
+  </defs>
+
+  <!-- Base Diamond Outline -->
+  <polygon points="40,8 72,40 40,72 8,40" fill="none" stroke="rgba(255, 255, 255, 0.15)" stroke-width="2" />
+
+  <!-- Inner Dynamic S & A Shapes -->
+  <path d="M 28 40 L 40 22 L 52 40 L 40 58 Z" fill="none" stroke="url(#cyberGlow)" stroke-width="3.5" stroke-linejoin="round" />
+  <line x1="22" y1="40" x2="58" y2="40" stroke="url(#cyberGlow)" stroke-width="3" stroke-linecap="round" />
+</svg>

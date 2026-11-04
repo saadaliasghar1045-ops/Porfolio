@@ -10,7 +10,7 @@ window.PORTFOLIO = {
   profile: {
     name: 'Saad Ali Asghar', // <-- put your real name here
     email: '', // Add a public contact email only if you want it displayed on the site.
-    contactEndpoint: 'https://form-handler-a3539441.fastapicloud.dev//contact', // Optional: deployed HTTPS FastAPI endpoint, e.g. 'https://your-api.example.com/contact'.
+    contactEndpoint: 'https://form-handler-a3539441.fastapicloud.dev/contact', // Optional: deployed HTTPS FastAPI endpoint, e.g. 'https://your-api.example.com/contact'.
     github: 'https://github.com/saadaliasghar1045-ops',
     linkedin: 'https://www.linkedin.com/in/saad-ali-asghar/',
     social: [
